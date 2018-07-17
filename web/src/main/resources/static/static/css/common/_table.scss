@@ -1,0 +1,38 @@
+/*表格*/
+
+.table-set {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  color: $textColor;
+  .table-row {
+    &:hover {
+      background-color: $tableRowHoverColor;
+    }
+  }
+}
+.table-header {
+  background-color: $tableHeaderColor;
+  border-bottom: 1px solid $borderColor;
+}
+.table-header-item {
+  height: $tableItemHeight;
+  padding: 0;
+  padding-left: 15px;
+  color: $textGrayColor;
+}
+.table-row {
+  background-color: $white;
+  border-bottom: 1px solid $borderColor;
+  &:nth-of-type(odd) {
+    background-color: $tableItemLightColor;
+  }
+}
+.table-row-cell {
+  height: $tableItemHeight;
+  padding: 0;
+  padding-left: 15px;
+}
+.table-row-empty {
+  padding: 100px 0;
+}
