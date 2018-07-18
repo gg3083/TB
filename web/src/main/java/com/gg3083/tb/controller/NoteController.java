@@ -32,7 +32,7 @@ public class NoteController extends BaseController {
     public JsonResult add(Note note){
         JsonResult jsonResult=new JsonResult();
         note.setPkNoteId(UUID.randomUUID().toString().replace("-",""));
-        //noteServiceImpl.saveNoNull(note);
+        noteServiceImpl.add(note);
         jsonResult.setMsg("添加成功");
         return buildSuccess(jsonResult);
     }

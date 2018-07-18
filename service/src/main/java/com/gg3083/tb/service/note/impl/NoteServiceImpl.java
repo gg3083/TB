@@ -18,4 +18,8 @@ public class NoteServiceImpl  {
         PageInfo pageInfo1 = new PageInfo<>(noteMapper.search(searchKey));
         return pageInfo1;
     }
+
+    public void add( Note note){
+        noteMapper.insertSelective( note);
+    }
 }
