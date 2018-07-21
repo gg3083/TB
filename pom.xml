@@ -39,6 +39,7 @@
         <md5.version>1.9</md5.version>
         <shiro.version>1.4.0</shiro.version>
         <jedis.version>2.9.0</jedis.version>
+        <tk-mybatis.version>2.0.3</tk-mybatis.version>
     </properties>
 
     <dependencyManagement>
@@ -108,6 +109,13 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>${mybatis-spring-boot.version}</version>
         </dependency>
+        <!-- tk.mybatis -->
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper-spring-boot-starter</artifactId>
+            <version>${tk-mybatis.version}</version>
+        </dependency>
+
         <!--  数据库驱动-->
         <dependency>
             <groupId>mysql</groupId>
