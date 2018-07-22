@@ -19,7 +19,13 @@ public class NoteServiceImpl  {
         return pageInfo1;
     }
 
+    public Note get(String id){
+        return noteMapper.get( id );
+    }
+
+
     public void add( Note note){
         noteMapper.insertSelective( note);
     }
+
 }

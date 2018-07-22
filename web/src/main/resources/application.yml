@@ -1,5 +1,10 @@
 server:
   port: 8082
+  max-http-header-size: 1048576
+  tomcat:
+    max-connections: 3000
+    max-http-post-size: 1048576
+    max-threads: 1000
 spring:
   mvc:
     view:

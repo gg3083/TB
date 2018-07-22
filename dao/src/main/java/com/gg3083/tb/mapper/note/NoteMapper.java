@@ -9,4 +9,6 @@ import java.util.List;
 public interface NoteMapper extends BaseMapper<Note> {
 
     List<Note> search(@Param("searchKey") String searchKey);
+
+    Note get(String id);
 }

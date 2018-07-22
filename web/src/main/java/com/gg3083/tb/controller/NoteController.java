@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
 
 @RequestMapping("/tb/note")
@@ -25,6 +26,12 @@ public class NoteController extends BaseController {
         JsonResult jsonResult=new JsonResult();
         jsonResult.setObj(noteServiceImpl.search(pageInfo,searchKey));
         return jsonResult;
+    }
+
+    @RequestMapping("/get")
+    public String get(String id, HttpServletRequest request){
+        request.setAttribute("note" , noteServiceImpl.get( id ));
+        return "/view/detail";
     }
 
     @RequestMapping("/add")

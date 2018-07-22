@@ -11,4 +11,9 @@
         order by create_time desc
     </select>
 
+    <select id="get" resultType="com.gg3083.tb.domain.note.Note">
+        SELECT * from note where is_delete = 1
+        and pk_note_id = #{ id }
+    </select>
+
 </mapper>

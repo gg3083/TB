@@ -96,6 +96,7 @@ canvas {
 }
 .noteTitle{
 	color: #f74d4a!important;
+	text-decoration: none!important;
 }
 .noteDesc{
 	margin-top: 10px;
@@ -103,4 +104,9 @@ canvas {
 }
 #user_child{
 	display: none;
+}
+#data,#show{
+	height: 500px;
+	margin-top:15px;
+	padding: 5px;
 }

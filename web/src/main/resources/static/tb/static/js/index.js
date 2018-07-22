@@ -72,7 +72,7 @@ layui.use(['layedit','laypage','form','layer'],function() {
             console.log(addData);
             $.ajax({
                 url: addUrl,
-                type: get,
+                type: post,
                 dataType: json,
                 data: addData,
                 success: function (data) {
