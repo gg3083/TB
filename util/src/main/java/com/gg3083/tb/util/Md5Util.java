@@ -5,11 +5,10 @@ import org.springframework.util.StringUtils;
 
 public class Md5Util {
 
-    //MD5加密
+    public Md5Util() {
+    }
+
     public static String getMd5(String key, String str) {
-        if (StringUtils.isEmpty(str)) {
-            return "";
-        }
-        return DigestUtils.md5Hex(key + str);
+        return StringUtils.isEmpty(str) ? "" : DigestUtils.md5Hex(key + str);
     }
 }
