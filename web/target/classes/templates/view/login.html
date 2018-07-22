@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
-    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/tb/static/css/login.css">
 </head>
 <canvas id="canvas" style="position:absolute;z-index:-1;"></canvas>
 
 <body>
-<form  id="myform">
+<form  id="myform" method="post" action="/tb/checkLogin">
     <div id="login">
         <dl class="admin_login">
 
@@ -30,7 +30,7 @@
                 <input type="button" value="点击更换" class="ver_btn" onClick="validate();">
             </dd>
             <dd>
-                <button id="bs"  type="button"  value="立即登陆" class="submit_btn"/>登录</button>
+                <button id="bs"  type="submit"  value="立即登陆" class="submit_btn"/>登录</button>
             </dd>
             <dd>
                 <p>© 2018 版权所有</p>
@@ -40,6 +40,6 @@
     </div>
 </form>
 </body>
-<script src="/static/js/base.js"></script>
-<script src="/static/js/login.js"></script>
+<script src="/tb/static/js/base.js"></script>
+<script src="/tb/static/js/login.js"></script>
 </html>

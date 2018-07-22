@@ -9,18 +9,19 @@ $(function () {
     createCode();
 })
 
-$("#bs").click(function () {
-    var loginDate=$("#myform").serialize();
-    $.ajax({
-        url:"/",
-        data:loginDate,
-        type:"post",
-        datetype:"json",
-        success:function(data){
-            window.location.href="/";
-        }
-    })
-})
+// $("#bs").click(function () {
+//     var loginDate=$("#myform").serialize();
+//     alert(loginDate);
+//     $.ajax({
+//         url:"/tb/checkLogin",
+//         data:loginDate,
+//         type:"post",
+//         datetype:"json",
+//         // success:function(data){
+//         //     window.location.href="/";
+//         // }
+//     })
+// })
 
 function showCheck(a){
     var c = document.getElementById("myCanvas");

@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="common_header(title,links,styles)">
 <div >
     <canvas id="canvas" style="position:fixed;z-index:-2;height:auto;width: 100%; "></canvas>
 </div>
@@ -46,23 +41,20 @@
             </nav>
         </div>
         <div class="col-md-2 col-sm-2">
-            <c:if test="${ empty user}">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" th:if="${#lists.isEmpty(session.user)}">
                     <li class="top_li"><span id="registerBtn">[&nbsp;&nbsp;注册&nbsp;&nbsp;]</span></li>
-                    <li class="top_li"><span id="loginBtn" onclick="login()">[&nbsp;&nbsp;登录&nbsp;&nbsp;]</span></li>
+                    <li class="top_li"><span id="loginBtn" onclick="window.location.href='/tb/login'">[&nbsp;&nbsp;登录&nbsp;&nbsp;]</span></li>
                 </ul>
-            </c:if>
-            <c:if test="${ not empty user}">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" th:if="${not #lists.isEmpty(session.user)}">
                     <li class="top_li"><span >[&nbsp;&nbsp;欢迎：&nbsp;&nbsp;]</span></li>
                     <li class="top_li" id="user_parent">
-                        <span>[&nbsp;&nbsp;${user.userName}&nbsp;&nbsp;]</span>
+                        <span th:text="'[&nbsp;&nbsp;'+${session.user.userName}+'&nbsp;&nbsp;]'"></span>
                         <dl id="user_child">
                             <dd>
                                 <a href="/admin/">个人管理</a>
                             </dd>
                             <dd>
-                                <a href="">安全退出</a>
+                                <a href="/logout">安全退出</a>
                             </dd>
                         </dl>
                     </li>
@@ -72,12 +64,11 @@
         <div class="col-md-1 col-sm-0"></div>
     </div>
 </div>
-</body>
 
 <script>
     function login() {
         window.location.href="/login";
     }
-
 </script>
+</div>
 </html>

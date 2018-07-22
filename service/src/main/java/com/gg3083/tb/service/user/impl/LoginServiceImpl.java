@@ -15,7 +15,7 @@ public class LoginServiceImpl {
 
 
     public User login(String loginName, String loginPwd) {
-        loginPwd = Md5Util.getMd5("GG", loginPwd);
+        //loginPwd = Md5Util.getMd5("GG", loginPwd);
         System.err.println(loginPwd);
         User u = userMapper.login(loginName, loginPwd);
         if (u != null) {

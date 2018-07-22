@@ -41,7 +41,7 @@ layui.use(['layedit','laypage','form','layer'],function() {
     var noReload = 0;
 
     $(function () {
-        data_top();
+        //data_top();
         canvas();
         list(listUrl, elem, queryData, temp1, $template1);
         add();
@@ -135,10 +135,18 @@ layui.use(['layedit','laypage','form','layer'],function() {
         html += '       </nav>';
         html += '   </div>';
         html +='    <div class="col-md-2 col-sm-2">';
+        html +=' <span th:if="${#lists.isEmpty(ip)}">';
         html +='        <ul class="nav navbar-nav">';
         html +='            <li class="top_li"><span id="registerBtn">[&nbsp;&nbsp;注册&nbsp;&nbsp;]</span></li>';
         html +='            <li class="top_li"><span id="loginBtn" onclick="login()">[&nbsp;&nbsp;登录&nbsp;&nbsp;]</span></li>';
         html +='        </ul>';
+        html +='</span>';
+        html +=' <span th:text="[[${ip}]]">';
+        html +='        <ul class="nav navbar-nav">';
+        html +='            <li class="top_li"><span id="registerBtn">[&nbsp;&nbsp;注册&nbsp;&nbsp;]</span></li>';
+        html +='            <li class="top_li"><span id="loginBtn" onclick="login()">[&nbsp;&nbsp;登2录&nbsp;&nbsp;]</span></li>';
+        html +='        </ul>';
+        html +='</span>';
         html +='      </div>';
         html +='     <div class="col-md-1 col-sm-0"></div>';
         html +='    </div>';
