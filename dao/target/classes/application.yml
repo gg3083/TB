@@ -1,8 +1,0 @@
-
-mybatis:
-  typeAliasesPackage: com.gg3083.tb.domain
-  configuration:
-    map-underscore-to-camel-case: true
-logging:
-  level:
-    com.gg3083.tb.mapper : debug
