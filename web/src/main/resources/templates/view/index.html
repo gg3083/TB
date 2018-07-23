@@ -57,22 +57,24 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" src="/tb/static/js/base.js"></script>
-<script type="text/javascript" src="/tb/lib/layui/layui.js"></script>
-<script type="text/javascript" src="/tb/static/js/page.js"></script>
-<script type="text/javascript" src="/tb/static/js/index.js"></script>
-<script type="text/javascript" src="/tb/static/js/template-web.js"></script>
+<!--<script type="text/javascript" src="/tb/static/js/base.js"></script>-->
+<!--<script type="text/javascript" src="/tb/lib/layui/layui.js"></script>-->
+<!--<script type="text/javascript" src="/tb/static/js/page.js"></script>-->
+<!--<script type="text/javascript" src="/tb/static/js/index.js"></script>-->
+<!--<script type="text/javascript" src="/tb/static/js/template-web.js"></script>-->
+<script src="/tb/static/js/require.js" data-main="/tb/static/js/main"></script>
 
-<script id="temp1" type="text/html">
-    {{each list as value}}
+
+<script id="data-template" type="text/x-handlebars-template">
+    {{#note}}
     <div class="noteTitle">
-      <a href='/tb/note/get?id={{value.pkNoteId}}' class="noteTitle"> {{value.noteTitle}} </a>
+      <a href='/tb/note/get?id={{note.pkNoteId}}' class="noteTitle"> {{note.noteTitle}} </a>
     </div>
     <div class="noteDesc">
-        {{value.noteDescShort}}
+        {{note.noteDescShort}}
     </div>
     <hr style="height:1px; border:none;border-bottom: 1px dotted #E4E6EB;background: #fff;" />
-    {{/each}}
+    {{/note}}
 </script>
 <script>
     function login() {

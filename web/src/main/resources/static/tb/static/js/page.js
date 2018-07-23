@@ -30,10 +30,10 @@ function getListByPage(url, queryData, temp, templateId) {
 function parseList(res, currPage, temp, templateId) {
     layui.use('laypage', function () {
         var form = layui.form;
-        var html = template(temp, res);
-        templateId.html(html);
+        //var html = template(temp, res);
+        console.log( temp(res.list) );
+        templateId.html(temp(res.list));
         form.render();
     })
-
 }
 ;
