@@ -1,4 +1,4 @@
-function list(url, elem, queryData, temp, templateId) {
+function list(url, elem, queryData, temp, $template) {
     layui.use('laypage', function () {
         var laypage = layui.laypage;
         var form = layui.form;
@@ -11,28 +11,26 @@ function list(url, elem, queryData, temp, templateId) {
                 jump: function (obj, first) {
                     if (!first) { //首次则不进入
                         queryData.pageNum = obj.curr;
-                        getListByPage(url, queryData, temp, templateId);
+                        getListByPage(url, queryData, temp, $template);
                     }
                 }
             });
-            parseList(res.obj, queryData.pageNum, temp, templateId);
+            parseList(res.obj, queryData.pageNum, temp, $template);
         });
     });
 }
 
 //点击页数从后台获取数据
-function getListByPage(url, queryData, temp, templateId) {
+function getListByPage(url, queryData, temp, $template) {
     $.getJSON(url, queryData, function (res) {
-        parseList(res.obj, queryData.pageNum, temp, templateId);
+        parseList(res.obj, queryData.pageNum, temp, $template);
     });
 }
 
-function parseList(res, currPage, temp, templateId) {
+function parseList(res, currPage, temp, $template) {
     layui.use('laypage', function () {
         var form = layui.form;
-        //var html = template(temp, res);
-        console.log( temp(res.list) );
-        templateId.html(temp(res.list));
+        $template.html(temp(res));
         form.render();
     })
 }

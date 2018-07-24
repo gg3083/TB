@@ -13,11 +13,10 @@ requirejs.config({
         page:{
             deps:['handlebars']
         }
-
      }
 })
 
-requirejs(['jquery','bootstrap','handlebars','layui','page'], function($,bootstrap,handlebars) {
+requirejs(['jquery','bootstrap','handlebars','layui'], function($,bootstrap,handlebars) {
 
      layui.use(['layedit','laypage','form','layer'],function() {
         var laypage = layui.laypage;
@@ -42,10 +41,9 @@ requirejs(['jquery','bootstrap','handlebars','layui','page'], function($,bootstr
         var addUrl = "/tb/note/add"; //添加
 
         //分页
-        var elem = 'page1';//显示上下一页的位置
-        var temp1 = 'temp1';//模板1
-        var template = handlebars.compile( $("#data-template").html());
-        var $template1 = $('#template1');//数据显示的位置
+        var page_note = 'page-note';//显示上下一页的位置
+        var temp_note = handlebars.compile( $("#data-template-note").html() );//显示所有note的模板
+        var $template_note = $('#template-note');//note显示的位置
 
         //dom
         var $publish = $('#publish');
@@ -63,14 +61,14 @@ requirejs(['jquery','bootstrap','handlebars','layui','page'], function($,bootstr
         var noReload = 0;
 
         $(function () {
-            //data_top();
             canvas();
-            list(listUrl, elem, queryData, template, $template1);
+            list(listUrl, page_note, queryData,temp_note,$template_note);
             add();
             $userParent.hover(function () {
                 $userChild.toggle();
             })
         })
+
 
         function login() {
             window.location.href = "/tb/login";
@@ -107,74 +105,43 @@ requirejs(['jquery','bootstrap','handlebars','layui','page'], function($,bootstr
         function msg(data, reload) {
             if (data.code == 200) {
                 layer.msg(data.msg);
-                // alert(data.msg);
                 if (reload == 1) {
                     setTimeout("location.reload();", 1000)
                 }
             } else if (data.code == 500) {
-
+                layer.msg(data.msg);
             }
         }
 
-        function data_top() {
-            var html = '';
-            html += '<div >';
-            html += ' <canvas id="canvas" style="position:fixed;z-index:-2;height:auto;width: 100%; "></canvas>';
-            html += '</div>';
-            html += '<div id="header" class="container bg-fff">';
-            html += '  <div class="row">';
-            html += '     <div class="col-md-1 col-sm-0"></div>';
-            html += '     <div class="col-md-8 col-sm-10">';
-            html += '         <nav class="navbar navbar-default bg-fff" role="navigation">';
-            html += '         <div class="container-fluid">';
-            html += '             <div>';
-            html += '              <ul class="nav navbar-nav">';
-            html += '                 <li>';
-            html += '                     <div class="navbar-header">';
-            html += '                         <a id="logo" class="navbar-brand" href="#">Logo</a>';
-            html += '                      </div>';
-            html += '                 </li>';
-            html += '                 <li>';
-            html += '                     <a href="#"><b>首页</b></a>';
-            html += '                 </li>';
-            html += '                 <li>';
-            html += '                     <a href="#">广场</a>';
-            html += '                 </li>';
-            html += '                  <li>';
-            html += '                      <a href="#wirte">发贴</a>';
-            html += '                 </li>';
-            html += '                 <li>';
-            html += '                     <form class="navbar-form navbar-left" role="search">';
-            html += '                     <div class="form-group">';
-            html += '                         <input type="text" class="form-control" placeholder="Search" size="32">';
-            html += '                     </div>';
-            html += '                         <button type="button" class="btn btn-default" id="search">寻找</button>';
-            html += '                      </form>';
-            html += '                  </li>';
-            html += '               </ul>';
-            html += '             </div>';
-            html += '           </div>';
-            html += '       </nav>';
-            html += '   </div>';
-            html +='    <div class="col-md-2 col-sm-2">';
-            html +=' <span th:if="${#lists.isEmpty(ip)}">';
-            html +='        <ul class="nav navbar-nav">';
-            html +='            <li class="top_li"><span id="registerBtn">[&nbsp;&nbsp;注册&nbsp;&nbsp;]</span></li>';
-            html +='            <li class="top_li"><span id="loginBtn" onclick="login()">[&nbsp;&nbsp;登录&nbsp;&nbsp;]</span></li>';
-            html +='        </ul>';
-            html +='</span>';
-            html +=' <span th:text="[[${ip}]]">';
-            html +='        <ul class="nav navbar-nav">';
-            html +='            <li class="top_li"><span id="registerBtn">[&nbsp;&nbsp;注册&nbsp;&nbsp;]</span></li>';
-            html +='            <li class="top_li"><span id="loginBtn" onclick="login()">[&nbsp;&nbsp;登2录&nbsp;&nbsp;]</span></li>';
-            html +='        </ul>';
-            html +='</span>';
-            html +='      </div>';
-            html +='     <div class="col-md-1 col-sm-0"></div>';
-            html +='    </div>';
-            html +='</div>';
-            $(".header").html(html);
-        }
+         function list(url, elem, queryData, temp, $template) {
+                 $.getJSON(url, queryData, function (res) {
+                     laypage.render({
+                         elem: elem,
+                         count: res.obj.total, //总条数
+                         limit: queryData.pageSize, //每页条数
+                         theme: '#048F74', //自定义颜色
+                         jump: function (obj, first) {
+                             if (!first) { //首次则不进入
+                                 queryData.pageNum = obj.curr;
+                                 getListByPage(url, queryData, temp, $template);
+                             }
+                         }
+                     });
+                     parseList(res.obj, queryData.pageNum, temp, $template);
+                 });
+         }
+
+//点击页数从后台获取数据
+         function getListByPage(url, queryData, temp, $template) {
+             $.getJSON(url, queryData, function (res) {
+                 parseList(res.obj, queryData.pageNum, temp, $template);
+             });
+         }
+
+         function parseList(res, currPage, temp, $template) {
+                 $template.html(temp(res));
+                 form.render();
+         }
      });
 
 
