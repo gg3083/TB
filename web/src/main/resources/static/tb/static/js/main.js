@@ -16,7 +16,7 @@ requirejs.config({
      }
 })
 
-requirejs(['jquery','bootstrap','handlebars','layui'], function($,bootstrap,handlebars) {
+requirejs(['jquery','bootstrap','handlebars','layui','page'], function($,bootstrap,handlebars,page) {
 
      layui.use(['layedit','laypage','form','layer'],function() {
         var laypage = layui.laypage;
@@ -113,7 +113,7 @@ requirejs(['jquery','bootstrap','handlebars','layui'], function($,bootstrap,hand
             }
         }
 
-         function list(url, elem, queryData, temp, $template) {
+         function list2(url, elem, queryData, temp, $template) {
                  $.getJSON(url, queryData, function (res) {
                      laypage.render({
                          elem: elem,
@@ -142,6 +142,10 @@ requirejs(['jquery','bootstrap','handlebars','layui'], function($,bootstrap,hand
                  $template.html(temp(res));
                  form.render();
          }
+         handlebars.registerHelper('formatDesc', function(text, options){
+             return text.substring(0, 50)+'...';
+         });
+
      });
 
 

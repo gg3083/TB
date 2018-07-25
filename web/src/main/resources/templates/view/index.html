@@ -67,12 +67,14 @@
 
 <script id="data-template-note" type="text/x-handlebars-template">
     {{#list}}
-    <div class="noteTitle">
-      <a href='/tb/note/get?id={{pkNoteId}}' class="noteTitle"> {{noteTitle}} </a>
-    </div>
-    <div class="noteDesc">
-        {{noteDescShort}}
-    </div>
+    <a href='/tb/note/get?id={{pkNoteId}}' class="note-a">
+        <div class="noteTitle" >
+         {{noteTitle}}
+        </div>
+        <div class="noteDesc">
+            {{formatDesc noteDescShort}}
+        </div>
+    </a>
     <hr style="height:1px; border:none;border-bottom: 1px dotted #E4E6EB;background: #fff;" />
     {{/list}}
 </script>

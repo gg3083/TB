@@ -35,3 +35,7 @@ function parseList(res, currPage, temp, $template) {
     })
 }
 ;
+
+var exports = {
+    list
+}

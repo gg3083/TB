@@ -1,7 +1,9 @@
 package com.gg3083.tb.controller;
 
 import com.gg3083.tb.domain.log.Log;
+import com.gg3083.tb.domain.user.User;
 import com.gg3083.tb.mapper.log.LogMapper;
+import com.gg3083.tb.util.NoUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,14 +19,19 @@ public class IndexController {
     private LogMapper logMapper;
 
     @RequestMapping(value = "/")
-    public String index(HttpServletRequest request, String loginName, String loginPwd, HttpSession session) {
+    public String index(HttpServletRequest request, HttpSession session) {
+        User user = (User) session.getAttribute("user");
         Log log = new Log();
-        String id = UUID.randomUUID().toString().replace("-", "");
-        log.setPkLogId(id);
-        log.setIp(request.getRemoteAddr());
+        String ip = request.getRemoteAddr();
+        log.setPkLogId(NoUtil.getDateNo());
+        log.setIp(ip);
         log.setOper("访问主页");
-        logMapper.insert(log);
-        request.setAttribute("ip", request.getRemoteAddr());
+        if (user!=null){
+            log.setFkUserId( user.getPkUserId() );
+            log.setUserName( user.getUserName() );
+        }
+        logMapper.insertSelective(log);
+        request.setAttribute("ip", ip);
         return "view/index";
     }
 }

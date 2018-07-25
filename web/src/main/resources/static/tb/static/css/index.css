@@ -70,7 +70,7 @@ canvas {
 #content{
 	background: #fff;
 	margin-top: 15px;
-	height: 740px;
+	height: 750px;
 	padding: 5px 15px;
 }
 #right{
@@ -96,8 +96,11 @@ canvas {
 }
 .noteTitle{
 	color: #f74d4a!important;
+}
+.note-a{
 	text-decoration: none!important;
 }
+
 .noteDesc{
 	margin-top: 10px;
 	font-size: 14px;
