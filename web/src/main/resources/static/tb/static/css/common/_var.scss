@@ -1,0 +1,217 @@
+/*全局样式变量表，所有色值要录入色值表；所有基础元素、公共组件、页面的颜色和变量要在这里定义*/
+@import "color-table";// 色值表
+
+/*功能*/
+
+// 底色
+$bg:                                       $white-1;
+$login-bg:                                 $gray-10;// 登录页改版后删除
+
+// base
+$textColor:                                $black-1;
+$textLinkColor:                            $blue-3;
+$textGrayColor:                            $gray-4;
+$errorColor:                               $red-1;
+$passColor:                                $green-1;
+$symbolImperativeColor:                    $red-1;
+
+$borderColor:                              $gray-1;
+$borderRadius:                             4px;
+$borderWidth:                              1px;
+$btnHeight:                                36px;
+$inputWidth:                               245px;
+
+$maxZindex:                                1000;
+$minScreenWidth:                           1260px;// not use, for reference only
+$topHeight:                                50px;
+$searchHeaderHeight:                       60px;
+$barWidth:                                 180px;
+$barInsideWidth:                           280px;
+$barMinWidth:                              50px;
+
+// input
+$placeholderColor:                         $gray-3;
+
+// btn
+$btnWhiteBaseColor:                        $white;
+$btnWhiteBaseLightColor:                   $white-6;
+$btnWhiteBorderColor:                      $gray-6;
+$btnWhiteTextColor:                        $black-1;
+$btnWhiteDisableColor:                     $gray-2;
+$btnWhiteDisableBorderColor:               $white-7;
+$btnWhiteDisableTextColor:                 $gray-18;
+
+$btnBlueBaseColor:                         $blue-2;
+$btnBlueBaseLightColor:                    $blue-6;
+$btnBlueDeepColor:                         $blue-8;
+$btnBlueDeepLightColor:                    $blue-9;
+
+$btnPureWhiteTextColor:                    $black-13;
+$btnPureWhiteBorderColor:                  $white-7;
+$btnPureWhiteSelectedColor:                $gray-15;
+
+$btnOtherBgColor:                          $gray-17;
+$btnLinkColor:                             $blue-3;
+$btnDisableColor:                          $gray-2;
+
+// icon
+$iconExclamationCircleColor:               $orange-1;
+$iconCheckCilcleColor:                     $green-1;
+$iconAngleDownColor:                       $black-12;
+$iconTrashColor:                           $gray-4;
+$iconPlusCilcleColor:                      $gray-16;
+
+// table
+$tableHeaderColor:                         $white-4;
+$tableItemLightColor:                      $white-5;
+$tableItemHeight:                          36px;
+$tableRowHoverColor:                       $white-2;
+
+// warning container
+$warnContainerColor:                       $orange-2;
+
+// modal
+$modalBgColor:                             $black-2;
+$modalBgOpacity:                           .8;
+$modalTitleFontSize:                       20px;
+$modalBodyAlertTextColor:                  $black-4;
+$modalFooterAlertBgColor:                  $white-8;
+$modalSubTitleColor:                       $gray-5;
+$modalBtnWhiteBorderColor:                 $white-7;
+$modalBtnWhiteTextColor:                   $black-13;
+
+// datepicker
+$datepickerItemActiveColor:                $blue-5;
+$datepickerItemOldColor:                   $gray-9;
+$datepickerItemDisableColor:               $gray-2;
+$datepickerBgLightColor:                   $white-9;
+$datepickerWidth:                          290px;
+
+// popover
+$popoverHeaderColor:                       $white-5;
+
+// switch
+$switchBgActiveColor:                      $blue-5;
+$switchBgColor:                            $gray-8;
+
+// jpager
+$jpagerItemColor:                          $gray-6;
+
+// dropdownBox
+$dropdownBoxBgLightColor:                  $white-9;
+$dropdownItemHeight:                       36px;
+$dropdownItemActiveColor:                  $gray-7;
+$dropdownContainerZindex:                  200;
+$dropdownInputZindex:                      202;
+$dropdownBoxZindex:                        201;
+
+// widget
+$widgetHeaderColor:                        $white-3;
+$widgetTabActiveColor:                     $gray-15;
+$widgetInputBorderColor:                   $gray-6;
+$widgetTabTitleLineColor:                  $blue-4;
+
+// header
+$headerHeight:                             $topHeight;
+$headerZindex:                             $maxZindex;
+$headerBgColor:                            $black-6;
+$headerBorderColor:                        $black-7;
+$headerBubbleColor:                        $orange-3;
+$headerLogoutTextColor:                    $black-3;
+$headerMenuColor:                          $white $white-4;
+
+// sidebar
+$sideBarWidth:                             $barWidth;
+$sideBarMinWidth:                          $barMinWidth;
+$sideBarInsideWidth:                       $barInsideWidth;
+$sideBarPaddingTop:                        $topHeight;
+$sideBarBgColor:                           $black-8;
+$sideBarMenuHeaderColor:                   $black-11;
+$sideBarMenuHeaderHoverColor:              $blue-1;
+$sideBarItemHeight:                        43px;
+$sideBarItemBgColor:                       $black-14;
+$sideBarItemHoverColor:                    $black-11;
+$sideBarActiveColor:                       $blue-1;
+$sideBarZindex:                            $maxZindex - 1;
+
+// searchList
+$listItemLightColor:                       $white-8;
+$listBlankTipColor:                        $black-5;
+$listHeaderZindex:                         $maxZindex - 2;
+$listZindex:                               $maxZindex - 3;
+$listBarWidth:                             $barWidth;
+$listBarInsideWidth:                       $barInsideWidth;
+$listHeaderHeight:                         $searchHeaderHeight;
+$listItemShakeColor:                       $blue-1;
+$listBorderColor:                          $gray-6;
+
+/*页面*/
+
+// error page
+$errorDescColor:                           $black-9;
+$errorIndexBtnBgColor:                     $black-10;
+
+// login
+$loginBlack1:                              $black-1;
+$loginGray11:                              $gray-11;
+$loginGray4:                               $gray-4;
+$loginGray12:                              $gray-12;
+
+// user
+$userBlue4:                                $blue-4;
+$userBlue5:                                $blue-5;
+$userBlack4:                               $black-4;
+$userGray13:                               $gray-13;
+
+// asset
+$assetWhite9:                              $white-9;
+$assetBlue3:                               $blue-3;
+$assetGray3:                               $gray-3;
+
+// project
+$projectGray4:                             $gray-4;
+$projectGray13:                            $gray-13;
+$projectBlue3:                             $blue-3;
+$projectGray14:                            $gary-14;
+$projectGray3:                             $gray-3;
+$projectBlack12:                           $black-12;
+$projectRed1:                              $red-1;
+
+// income_expend_list
+$incomeExpendBlue4:                        $blue-4;
+
+// content
+$contentGray6:                             $gray-6;
+
+// bank_rule
+$bankRuleBlue2:                             $blue-2;
+$bankRuleRed1:                              $red-1;
+$bankRuleGray5:                             $gray-5;
+
+// sales
+$salesTableTextColor:                      $black-1;
+
+// repay
+$repayGray6:                               $gray-6;
+
+// finance_data
+$financeDataGray1:                         $gray-1;
+$financeDataBlack1:                        $black-1;
+$financeDataGray4:                         $gray-4;
+$financeDataBlue3:                         $blue-3;
+
+// standard_statistics
+$standardStatisticsBlue6:                  $blue-6;
+
+// monthly_operating_report
+$monthlyOperatingReportBlack1:             $black-1;
+
+// service_log_detail
+$serviceLogDetailBlue3:                    $blue-3;
+$serviceLogDetailBlack1:                   $black-1;
+
+// mall_detail
+$mallDetailBlack1:                         $black-1;
+
+// mall_activity
+$mallActivityBlack1:                         $black-1;
