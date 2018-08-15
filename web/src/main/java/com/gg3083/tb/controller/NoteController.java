@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
 
-@RequestMapping("/tb/note")
+@RequestMapping(value = "tb/note")
 @Controller
 public class NoteController extends BaseController {
 
     @Autowired
     private NoteServiceImpl noteServiceImpl;
 
-    @RequestMapping("/list")
+    @RequestMapping(value = "list")
     @ResponseBody
     public JsonResult list(PageInfo pageInfo, String searchKey){
         JsonResult jsonResult=new JsonResult();
@@ -29,13 +29,13 @@ public class NoteController extends BaseController {
         return jsonResult;
     }
 
-    @RequestMapping("/get")
+    @RequestMapping(value = "get")
     public String get(String id, HttpServletRequest request){
         request.setAttribute("note" , noteServiceImpl.get( id ));
         return "/view/detail";
     }
 
-    @RequestMapping("/add")
+    @RequestMapping(value = "add")
     @ResponseBody
     public JsonResult add(Note note){
         JsonResult jsonResult=new JsonResult();

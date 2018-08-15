@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping(value = "admin")
 public class TbUserController {
 
     @RequestMapping("/")
@@ -16,7 +16,7 @@ public class TbUserController {
         return "/admin/index";
     }
 
-    @RequestMapping("/logout")
+    @RequestMapping(value = "logout")
     public String logout(HttpSession session){
         session.removeAttribute("user");
         return "/view/index";

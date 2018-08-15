@@ -66,7 +66,7 @@ public class ShiroConfiguration {
 //        logoutFilter.setRedirectUrl("/login");
 //        filters.put("logout", logoutFilter);
 //        shiroFilterFactoryBean.setFilters(filters);
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        System.err.println(">>>>>>>>>>>>>>>>>>>>>>shiroFilter>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         Map<String, String> filterChainDefinitionManager = new LinkedHashMap<>();
         filterChainDefinitionManager.put("/**/logout/**", "logout");
         filterChainDefinitionManager.put("/**", "anon");//anon 可以理解为不拦截

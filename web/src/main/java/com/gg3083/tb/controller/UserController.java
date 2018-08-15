@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("/tb")
+@RequestMapping(value = "tb")
 public class UserController extends BaseController {
 
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
