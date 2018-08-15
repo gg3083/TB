@@ -32,7 +32,7 @@ public class NoteController extends BaseController {
     @RequestMapping(value = "get")
     public String get(String id, HttpServletRequest request){
         request.setAttribute("note" , noteServiceImpl.get( id ));
-        return "/view/detail";
+        return "view/detail";
     }
 
     @RequestMapping(value = "add")

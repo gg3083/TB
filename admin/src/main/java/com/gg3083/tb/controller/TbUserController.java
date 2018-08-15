@@ -13,12 +13,12 @@ public class TbUserController {
     @RequestMapping("/")
     public String index(){
         System.err.println("------------进入后台--------------");
-        return "/admin/index";
+        return "admin/index";
     }
 
     @RequestMapping(value = "logout")
     public String logout(HttpSession session){
         session.removeAttribute("user");
-        return "/view/index";
+        return "view/index";
     }
 }

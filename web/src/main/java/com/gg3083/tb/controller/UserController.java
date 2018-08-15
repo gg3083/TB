@@ -32,7 +32,7 @@ public class UserController extends BaseController {
 
     @RequestMapping(value = "login")
     public String tologin() {
-        return "/view/login";
+        return "view/login";
     }
 
     @RequestMapping(value = "checkLogin")
@@ -41,7 +41,7 @@ public class UserController extends BaseController {
         try {
             if (subject.isAuthenticated()) { //已登录
                 System.err.println( "用户[" + loginName + "]已登录过了)");
-                return "/view/index";
+                return "view/index";
             } else {
                 UsernamePasswordToken token = new UsernamePasswordToken(loginName, loginPwd);
                 subject.login( token );
@@ -50,7 +50,7 @@ public class UserController extends BaseController {
                 session.setAttribute("user", user);//成功则放入session
                 System.err.println(user);
                 System.out.println("用户[" + loginName + "]登录成功");
-                return "/view/index";
+                return "view/index";
             }
         } catch ( UnknownAccountException uae ) {
             logger.info("对用户[" + loginName + "]进行登录验证..验证失败-username wasn't in the system");
@@ -61,7 +61,7 @@ public class UserController extends BaseController {
         } catch ( AuthenticationException ae ) {
             logger.error(ae.getMessage());
         }
-        return "/view/login";
+        return "view/login";
     }
 
 }
