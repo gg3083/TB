@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gg3083.tb.mapper.UserMapper" >
+
+    <select id="login" resultType="cn.gg3083.tb.domain.User">
+        select * from `user`
+        where is_delete=1
+        and login_name=#{loginName}
+        and login_pwd=#{loginPwd}
+    </select>
+
+    <select id="getByLoginName" resultType="cn.gg3083.tb.domain.User">
+            select * from `user`
+            where is_delete=1
+            and login_name=#{loginName}
+    </select>
+
+</mapper>

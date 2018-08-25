@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>tb</artifactId>
-        <groupId>com.gg.tb</groupId>
+        <groupId>cn.gg3083.tb</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -14,31 +14,46 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.gg.tb</groupId>
-            <artifactId>admin</artifactId>
+            <groupId>cn.gg3083.tb</groupId>
+            <artifactId>tb-api-user</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.gg.tb</groupId>
-            <artifactId>dao</artifactId>
+            <groupId>cn.gg3083.tb</groupId>
+            <artifactId>tb-api-note</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.gg.tb</groupId>
-            <artifactId>domain</artifactId>
+            <groupId>cn.gg3083.tb</groupId>
+            <artifactId>tb-api-log</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.gg.tb</groupId>
-            <artifactId>service</artifactId>
+            <groupId>cn.gg3083.tb</groupId>
+            <artifactId>tb-service-user</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.gg.tb</groupId>
+            <groupId>cn.gg3083.tb</groupId>
+            <artifactId>tb-service-note</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.gg3083.tb</groupId>
+            <artifactId>tb-service-log</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.gg3083.tb</groupId>
             <artifactId>util</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
     </dependencies>
 
     <!-- 插件管理 -->
@@ -50,7 +65,7 @@
                 <version>2.0.3.RELEASE</version>
                 <configuration>
                   <!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.gg3083.tb.Application</mainClass>
+                    <mainClass>cn.gg3083.tb.Application</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>

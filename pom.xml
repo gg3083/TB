@@ -4,18 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.gg.tb</groupId>
+    <groupId>cn.gg3083.tb</groupId>
     <artifactId>tb</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>dao</module>
-        <module>service</module>
-        <module>domain</module>
         <module>util</module>
         <module>web</module>
         <module>common</module>
         <module>admin</module>
+        <module>tb-api-note</module>
+        <module>tb-service-note</module>
+        <module>tb-api-user</module>
+        <module>tb-service-user</module>
+        <module>tb-api-log</module>
+        <module>tb-service-log</module>
     </modules>
 
     <parent>
