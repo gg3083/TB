@@ -27,7 +27,7 @@ spring:
     time-zone: GMT+8
     date-format: yyyy-MM-dd HH:mm:ss
 mybatis:
-  typeAliasesPackage: com.gg3083.tb.domain
+  typeAliasesPackage: cn.gg3083.tb.domain
   configuration:
     map-underscore-to-camel-case: true
 logging:
