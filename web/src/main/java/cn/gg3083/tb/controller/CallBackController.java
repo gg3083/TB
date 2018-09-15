@@ -18,8 +18,15 @@ public class CallBackController {
         JsonResult jsonResult = new JsonResult();
         List<Integer> list = new LinkedList<>();
         Random num =   new Random( );
-        for (int i = 0; i < 6; i++) {
-         list.add( num.nextInt(32)+1 );
+        for (int i = 0; i < 100; i++) {
+            Integer no = num.nextInt(32) + 1;
+            if (list.contains(no)) {
+                continue;
+            }
+            list.add(no);
+            if (list.size() == 6) {
+                break;
+            }
         }
         Collections.sort( list );
         list.add( num.nextInt(16)+1 );
