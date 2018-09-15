@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 @Controller
+@RequestMapping(value = "tb/note")
 public class CallBackController {
 
     @RequestMapping("callback")
