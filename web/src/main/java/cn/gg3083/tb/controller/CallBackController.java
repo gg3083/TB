@@ -14,7 +14,7 @@ import java.util.Random;
 public class CallBackController {
 
     @RequestMapping("callback")
-    public JsonResult random(HttpResponse response){
+    public JsonResult random(){
         JsonResult jsonResult = new JsonResult();
         List<Integer> list = new LinkedList<>();
         Random num =   new Random( );
@@ -24,7 +24,6 @@ public class CallBackController {
         Collections.sort( list );
         list.add( num.nextInt(16)+1 );
         jsonResult.setObj( list );
-        response.setHeader("Access-Control-Allow-Origin","*");
         return jsonResult;
     }
 
